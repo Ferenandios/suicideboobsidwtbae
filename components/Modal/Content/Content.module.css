@@ -1,0 +1,7 @@
+.ansoc {
+  @apply absolute right-0 z-50 top-0 flex justify-end w-screen h-screen bg-white duration-500 overflow-hidden sm:w-[472px];
+}
+
+.inner {
+  @apply absolute flex flex-col w-screen h-screen gap-[8px] p-[16px] overflow-y-scroll hxl:overflow-y-auto hlg:border-b-[35px] sm:w-[472px];
+}

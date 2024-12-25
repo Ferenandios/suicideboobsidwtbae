@@ -7,11 +7,18 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+      hlg: { raw: "(min-height: 1024px)" },
+      hxl: { raw: "(min-height: 1200px)" },
+    },
+    fontFamily: {
+      sans: ["Open Sans", "sans-serif"],
+      inter: ["Inter", "sans-serif"],
     },
   },
   plugins: [],

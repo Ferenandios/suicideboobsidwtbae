@@ -1,0 +1,7 @@
+.ansoc {
+  @apply flex;
+}
+
+.text {
+  @apply text-[12px];
+}
