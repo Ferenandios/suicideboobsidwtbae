@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import CatalogPage from "@/components/CatalogPage/CatalogPage";
 import { IService } from "@/types/types";
 import { FC } from "react";
@@ -430,12 +431,18 @@ const services: IService[] = [
     isActive: false,
   },
 ];
-export async function generateMetadata({
-  params,
-}: {
-  params: { itemId: string };
-}) {
-  const service = services[+params.itemId];
+
+type Props = {
+  params: Promise<{ itemId: string }>;
+};
+
+// {
+//   params: { itemId: any };
+// }
+
+export async function generateMetadata({ params }: Props) {
+  const parameters = await params;
+  const service = services[+parameters.itemId];
 
   const companyName = 'ООО "РЕМИКС"';
   const year: number = new Date().getFullYear();
@@ -447,10 +454,13 @@ export async function generateMetadata({
   };
 }
 
-const Page: FC<{ params: { itemId: string } }> = ({ params }) => {
+const Page: FC<{ params: Promise<{ itemId: string }> }> = async ({
+  params,
+}) => {
+  const parameters = await params;
   return (
     <>
-      <CatalogPage itemId={params.itemId} />
+      <CatalogPage itemId={parameters.itemId} />
     </>
   );
 };
